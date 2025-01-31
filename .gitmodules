@@ -1,0 +1,54 @@
+[submodule "01-Open-Source/shadcn/forked-form-builder"]
+	path = 01-Open-Source/shadcn/forked-form-builder
+	url = https://github.com/AbhiArya20/forked-form-builder.git
+[submodule "01-Open-Source/cal.com/forked-cal.com"]
+	path = 01-Open-Source/cal.com/forked-cal.com
+	url = https://github.com/AbhiArya20/forked-cal.com.git
+[submodule "01-Open-Source/shadcn/forked-ui"]
+	path = 01-Open-Source/shadcn/forked-ui
+	url = https://github.com/AbhiArya20/forked-ui.git
+[submodule "02-Learnings/learnings"]
+	path = 02-Learnings/learnings
+	url = https://github.com/AbhiArya20/learnings.git
+[submodule "06-Projects/block-work"]
+	path = 06-Projects/block-work
+	url = https://github.com/AbhiArya20/block-work.git
+[submodule "06-Projects/chat"]
+	path = 06-Projects/chat
+	url = https://github.com/AbhiArya20/chat.git
+[submodule "06-Projects/coderoom"]
+	path = 06-Projects/coderoom
+	url = https://github.com/AbhiArya20/coderoom.git
+[submodule "06-Projects/create-app"]
+	path = 06-Projects/create-app
+	url = https://github.com/AbhiArya20/create-app.git
+[submodule "06-Projects/deep-learn"]
+	path = 06-Projects/deep-learn
+	url = https://github.com/AbhiArya20/deep-learn.git
+[submodule "06-Projects/docs"]
+	path = 06-Projects/docs
+	url = https://github.com/AbhiArya20/docs.git
+[submodule "06-Projects/edudoor"]
+	path = 06-Projects/edudoor
+	url = https://github.com/AbhiArya20/edudoor.git
+[submodule "06-Projects/jainsons"]
+	path = 06-Projects/jainsons
+	url = https://github.com/AbhiArya20/jainsons.git
+[submodule "06-Projects/meeting-room"]
+	path = 06-Projects/meeting-room
+	url = https://github.com/AbhiArya20/meeting-room.git
+[submodule "06-Projects/pair-programming"]
+	path = 06-Projects/pair-programming
+	url = https://github.com/AbhiArya20/pair-programming.git
+[submodule "06-Projects/phodcast"]
+	path = 06-Projects/phodcast
+	url = https://github.com/AbhiArya20/phodcast.git
+[submodule "06-Projects/portfolio"]
+	path = 06-Projects/portfolio
+	url = https://github.com/AbhiArya20/portfolio.git
+[submodule "06-Projects/whiteboard"]
+	path = 06-Projects/whiteboard
+	url = https://github.com/AbhiArya20/whiteboard.git
+[submodule "01-Open-Source/shadcn/forked-form-builde"]
+	path = 01-Open-Source/shadcn/forked-form-builde
+	url = https://github.com/AbhiArya20/forked-form-builder.git
