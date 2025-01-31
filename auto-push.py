@@ -8,6 +8,7 @@ def run_command(command, cwd=None):
     """Run a command in the shell and print its output."""
     result = subprocess.run(command, shell=True, text=True, capture_output=True, cwd=cwd)
     if result.returncode != 0:
+        print(f"Error running command: {command}")
         print(f"Error: {result.stderr}")
     else:
         print(result.stdout)
