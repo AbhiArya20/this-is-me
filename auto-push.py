@@ -4,6 +4,10 @@ from openai import OpenAI
 from langchain_ollama import ChatOllama
 import json
 
+def append_to_file(file_name, message):
+    with open(file_name, 'a') as file:
+        file.write(message + '\n')
+
 def run_command(command, cwd=None):
     """Run a command in the shell and print its output."""
     result = subprocess.run(command, shell=True, text=True, capture_output=True, cwd=cwd)
@@ -91,8 +95,6 @@ def get_diff_summary(submodule_path, modified_files):
 def commit_changes_in_submodule(submodule_path):
     """Commit any changes in the submodule with a generated commit message."""    
 
-    Exception("Commit changes in submodule not implemented yet.")
-
     # Get the list of modified files
     modified_files = get_modified_files(submodule_path)
 
@@ -141,6 +143,7 @@ def push_git_submodules(repo_path):
         run_command(f"git pull origin main", cwd=repo_path)  # Pull before pushing
         run_command(f"git push origin main", cwd=repo_path)
     except Exception as e:
+        append_to_file("commit-err.txt",str(e))
         print(f"Error pushing git submodules: {str(e)}")
 if __name__ == "__main__":
     repo_path = input("Enter the path to your Git repository: ").strip()
