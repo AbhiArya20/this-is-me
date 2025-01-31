@@ -49,6 +49,3 @@
 [submodule "06-Projects/whiteboard"]
 	path = 06-Projects/whiteboard
 	url = https://github.com/AbhiArya20/whiteboard.git
-[submodule "01-Open-Source/shadcn/forked-form-builde"]
-	path = 01-Open-Source/shadcn/forked-form-builde
-	url = https://github.com/AbhiArya20/forked-form-builder.git
