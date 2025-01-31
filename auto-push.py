@@ -115,6 +115,7 @@ def commit_changes_in_submodule(submodule_path):
 def push_git_submodules(repo_path):
     """Commit, pull, and push all git submodules recursively."""
 
+    # subprocess.run("")
     subprocess.run(['git', 'submodule', 'update', '--init', '--recursive'], cwd=repo_path)
     
     # Get the list of modified submodules (those that are out of sync)
@@ -134,9 +135,9 @@ def push_git_submodules(repo_path):
     commit_message = generate_commit_message(f"Generate commit message for the projects that have changed files here is the list of all modified project: \n{"\n".join(modified_files)}")
     print(f"Commit message: {commit_message}")
     run_command(f"git add .", cwd=repo_path)
-    run_command(f"git -C {repo_path} commit -m \"{commit_message}\"", cwd=repo_path)
-    run_command(f"git -C {repo_path} pull origin main", cwd=repo_path)  # Pull before pushing
-    run_command(f"git -C {repo_path} push origin main", cwd=repo_path)
+    run_command(f"git commit -m \"{commit_message}\"", cwd=repo_path)
+    run_command(f"git pull origin main", cwd=repo_path)  # Pull before pushing
+    run_command(f"git push origin main", cwd=repo_path)
 
 if __name__ == "__main__":
     repo_path = input("Enter the path to your Git repository: ").strip()
