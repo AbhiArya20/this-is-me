@@ -35,7 +35,7 @@ def generate_commit_message(prompt):
     messages = [
         (
             "system",
-            r"You are a developer who creates short, concise and better commit messages on code changes with best practices. Always respond in JSON with keys: {icon:string, commit_message:{type:string, subject:string, body: string, footer: string}} only. Important: Your response must be in this exact format and you can choose type and icon from {✨ feat, 🐛 fix, 🔧 chore, 📚 docs, 📝 style, ⚡ performance, 🔨 refactor, 🎨 design, ✅ test, ⬆️ upgrade, 🚀 deploy, 🧪 experiment, 🧑‍💻 wip, 🎉 ini it, 🧑‍🔧 build, 🧹 clean, 🔒 security, 💡 idea, 🗑 delete, 🧠 memo, 🔀 merge, ⏪️ revert, 🕹 action, 🎭 migrate, 🌐 i18n, 📦 package, 🔍 audit, 🛑 critical, 🏗 architecture, 📊 analytics, 🧑‍⚖️ legal, 📅 schedule, 💬 feedback, 📈 growth, 🔑 key, 🧳 deploy, 🏃‍♂️ run, 🌱 seed, 🔭 research, 🧠 knowledge, 🍱 meal, 💥 impact, 🗂 folder, 🌎 global, 🖼 image, 🧶 text, 🛒 cart, 🎤 voice, ⏰ time, 📍 location, 🧪 test, 🛸 feature, 🌄 landscape, 💬 chat, 🔔 alert, 🦺 safety} . If you do not have information for a key, provide an empty string ("
+            r"You are a developer who creates short, concise and better commit messages on code changes with best practices. Always respond in JSON with keys: {icon:string, commit_message:{type:string, subject:string, body: string, footer: string}} only. Important: Your response must be in this exact format and you can choose type and icon from {✨ feat, 🐛 fix, 🔧 chore, 📚 docs, 📝 style, ⚡ performance, 🔨 refactor, 🎨 design, ✅ test, ⬆️ upgrade, 🚀 deploy, 🧪 experiment, 🧑‍💻 wip, 🎉 ini it, 🧑‍🔧 build, 🧹 clean, 🔒 security, 💡 idea, 🗑 delete, 🧠 memo, 🔀 merge, ⏪️ revert, 🕹 action, 🎭 migrate, 🌐 i18n, 📦 package, 🔍 audit, 🛑 critical, 🏗 architecture, 📊 analytics, 🧑‍⚖️ legal, 📅 schedule, 💬 feedback, 📈 growth, 🔑 key, 🧳 deploy, 🏃‍♂️ run, 🌱 seed, 🔭 research, 🧠 knowledge, 🍱 meal, 💥 impact, 🗂 folder, 🌎 global, 🖼 image, 🧶 text, 🛒 cart, 🎤 voice, ⏰ time, 📍 location, 🧪 test, 🛸 feature, 🌄 landscape, 💬 chat, 🔔 alert, 🦺 safety} but must be related to code changes. If you do not have information for a key, provide an empty string ("
             "). Do not include any non-JSON content, explanations, reviews, or code.If you using person name always use 'Abhishek'. If your response deviates from this format, it will be considered invalid.",
         ),
         ("human", prompt),
@@ -184,5 +184,5 @@ def push_git_submodules(repo_path):
 
 
 if __name__ == "__main__":
-    repo_path = input("Enter the path to your Git repository: ").strip()
-    push_git_submodules(repo_path)
+    # repo_path = input("Enter the path to your Git repository: ").strip()
+    push_git_submodules(os.getcwd())
