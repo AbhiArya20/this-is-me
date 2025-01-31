@@ -6,7 +6,6 @@ import json
 
 def run_command(command, cwd=None):
     """Run a command in the shell and print its output."""
-    print(f"Running command: {command}")
     result = subprocess.run(command, shell=True, text=True, capture_output=True, cwd=cwd)
     if result.returncode != 0:
         print(f"Error: {result.stderr}")
@@ -133,7 +132,6 @@ def push_git_submodules(repo_path):
     
     # Generate commit message for the projects that have changed files
     commit_message = generate_commit_message(f"Generate commit message for the projects that have changed files here is the list of all modified project: \n{"\n".join(modified_files)}")
-    print(f"Commit message: {commit_message}")
     run_command(f"git add .", cwd=repo_path)
     run_command(f"git commit -m \"{commit_message}\"", cwd=repo_path)
     run_command(f"git pull origin main", cwd=repo_path)  # Pull before pushing
