@@ -91,6 +91,8 @@ def get_diff_summary(submodule_path, modified_files):
 def commit_changes_in_submodule(submodule_path):
     """Commit any changes in the submodule with a generated commit message."""    
 
+    Exception("Commit changes in submodule not implemented yet.")
+
     # Get the list of modified files
     modified_files = get_modified_files(submodule_path)
 
@@ -115,29 +117,31 @@ def commit_changes_in_submodule(submodule_path):
 def push_git_submodules(repo_path):
     """Commit, pull, and push all git submodules recursively."""
 
-    # subprocess.run("")
-    subprocess.run(['git', 'submodule', 'update', '--init', '--recursive'], cwd=repo_path)
-    
-    # Get the list of modified submodules (those that are out of sync)
-    submodules = get_submodules(repo_path)
+    try:
+        # subprocess.run("")
+        subprocess.run(['git', 'submodule', 'update', '--init', '--recursive'], cwd=repo_path)
+        
+        # Get the list of modified submodules (those that are out of sync)
+        submodules = get_submodules(repo_path)
 
-    # pull, Commit, and push the submodules repository
-    for submodules in submodules:
-        submodule_path = os.path.join(repo_path, submodules)
-        commit_changes_in_submodule(submodule_path)
+        # pull, Commit, and push the submodules repository
+        for submodules in submodules:
+            submodule_path = os.path.join(repo_path, submodules)
+            commit_changes_in_submodule(submodule_path)
 
-    # Get the diff summary for the main repository
-    modified_files = get_modified_files(repo_path)
-    if len(modified_files) == 0:
-        return;
-    
-    # Generate commit message for the projects that have changed files
-    commit_message = generate_commit_message(f"Generate commit message for the projects that have changed files here is the list of all modified project: \n{"\n".join(modified_files)}")
-    run_command(f"git add .", cwd=repo_path)
-    run_command(f"git commit -m \"{commit_message}\"", cwd=repo_path)
-    run_command(f"git pull origin main", cwd=repo_path)  # Pull before pushing
-    run_command(f"git push origin main", cwd=repo_path)
-
+        # Get the diff summary for the main repository
+        modified_files = get_modified_files(repo_path)
+        if len(modified_files) == 0:
+            return;
+        
+        # Generate commit message for the projects that have changed files
+        commit_message = generate_commit_message(f"Generate commit message for the projects that have changed files here is the list of all modified project: \n{"\n".join(modified_files)}")
+        run_command(f"git add .", cwd=repo_path)
+        run_command(f"git commit -m \"{commit_message}\"", cwd=repo_path)
+        run_command(f"git pull origin main", cwd=repo_path)  # Pull before pushing
+        run_command(f"git push origin main", cwd=repo_path)
+    except Exception as e:
+        print(f"Error pushing git submodules: {str(e)}")
 if __name__ == "__main__":
     repo_path = input("Enter the path to your Git repository: ").strip()
     push_git_submodules(repo_path)
