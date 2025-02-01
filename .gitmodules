@@ -1,12 +1,3 @@
-[submodule "01-Open-Source/shadcn/forked-form-builder"]
-	path = 01-Open-Source/shadcn/forked-form-builder
-	url = https://github.com/AbhiArya20/forked-form-builder.git
-[submodule "01-Open-Source/cal.com/forked-cal.com"]
-	path = 01-Open-Source/cal.com/forked-cal.com
-	url = https://github.com/AbhiArya20/forked-cal.com.git
-[submodule "01-Open-Source/shadcn/forked-ui"]
-	path = 01-Open-Source/shadcn/forked-ui
-	url = https://github.com/AbhiArya20/forked-ui.git
 [submodule "02-Learnings/learnings"]
 	path = 02-Learnings/learnings
 	url = https://github.com/AbhiArya20/learnings.git
