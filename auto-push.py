@@ -18,7 +18,7 @@ logging.basicConfig(
 def run_command(command, cwd=None):
     """Run a command in the shell and print its output."""
     result = subprocess.run(
-        command, shell=True, text=True, capture_output=True, cwd=cwd
+        command, shell=True, text=True, capture_output=True, cwd=cwd, encoding="utf-8"
     )
     if result.returncode != 0:
         print(f"Error running command: {command}")
@@ -63,6 +63,7 @@ def get_modified_files(submodule_path):
         text=True,
         capture_output=True,
         cwd=submodule_path,
+        encoding="utf-8",
     )
     return result.stdout.strip().splitlines()
 
@@ -70,7 +71,12 @@ def get_modified_files(submodule_path):
 def get_submodules(repo_path):
     """Get the list of submodules"""
     result = subprocess.run(
-        "git submodule", shell=True, text=True, capture_output=True, cwd=repo_path
+        "git submodule",
+        shell=True,
+        text=True,
+        capture_output=True,
+        cwd=repo_path,
+        encoding="utf-8",
     )
 
     submodules = []
@@ -95,6 +101,7 @@ def get_diff_summary(submodule_path, modified_files):
             text=True,
             capture_output=True,
             cwd=submodule_path,
+            encoding="utf-8",
         )
         diff = result.stdout.strip()
 
@@ -174,7 +181,12 @@ def push_git_submodules(repo_path):
     try:
         # subprocess.run("")
         subprocess.run(
-            ["git", "submodule", "update", "--init", "--recursive"], cwd=repo_path
+            ["git", "submodule", "update", "--init", "--recursive"],
+            cwd=repo_path,
+            shell=True,
+            text=True,
+            capture_output=True,
+            encoding="utf-8",
         )
 
         # Get the list of modified submodules (those that are out of sync)
