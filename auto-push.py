@@ -127,7 +127,7 @@ def commit_changes_in_submodule(repo_path, submodule):
 
     append_to_file(
         "commits.log",
-        f"****************************************************************COMMIT STARTED****************************************************************\n",
+        f"****************************************************************{submodule}****************************************************************\n",
     )
 
     submodule_path = os.path.join(repo_path, submodule)
@@ -142,22 +142,25 @@ def commit_changes_in_submodule(repo_path, submodule):
     diff_summary = get_diff_summary(submodule_path, modified_files)
     if diff_summary:
         # Generate commit message based on the diff summary
-        commit_message = generate_commit_message(
-            f"I have made changes in the repository you have to create a concise commit message from it following good practices and add some icons as well for better readability Here is my changes\n: {diff_summary}"
-        )
+        # commit_message = generate_commit_message(
+        #     f"I have made changes in the repository you have to create a concise commit message from it following good practices and add some icons as well for better readability Here is my changes\n: {diff_summary}"
+        # )
 
-        # Commit and push changes in the submodule
-        run_command("git checkout dev", cwd=submodule_path)
-        run_command(f"git add .", cwd=submodule_path)
-        run_command(f'git commit -m "{commit_message}"', cwd=submodule_path)
-        run_command("git pull origin dev", cwd=submodule_path)
-        run_command("git push origin dev", cwd=submodule_path)
+        # # Commit and push changes in the submodule
+        # run_command("git checkout dev", cwd=submodule_path)
+        # run_command(f"git add .", cwd=submodule_path)
+        # run_command(f'git commit -m "{commit_message}"', cwd=submodule_path)
+        # run_command("git pull origin dev", cwd=submodule_path)
+        # run_command("git push origin dev", cwd=submodule_path)
         append_to_file(
             "commits.log",
             f"Git push successful at {str(datetime.datetime.now())} in {submodule} with commit-message\n{commit_message} \n\n",
         )
     else:
-        print(f"No changes in submodule {submodule_path}.")
+        append_to_file(
+            "commits.log",
+            f"No change found in submodule {submodule_path}. \n\n",
+        )
 
 
 def push_git_submodules(repo_path):
@@ -202,7 +205,7 @@ def push_git_submodules(repo_path):
 
     append_to_file(
         "commits.log",
-        f"=================================================================COMMIT ENDED=================================================================\n\n\n\n\n",
+        f"\n\n=================================================================COMMIT ENDED=================================================================\n\n\n\n\n",
     )
 
 
