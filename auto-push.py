@@ -4,11 +4,22 @@ from openai import OpenAI
 from langchain_ollama import ChatOllama
 import json
 import datetime
+import logging
+
+
+logging.basicConfig(
+    filename="commits.log",
+    filemode="w",
+    encoding="utf-8",  # Ensure Unicode support
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    level=logging.INFO,
+)
 
 
 def append_to_file(file_name, message):
-    with open(file_name, "a") as file:
-        file.write(message + "\n")
+    logging.info("This is a test log with emojis ✨🚀🔥")
+    # with open(file_name, "a") as file:
+    #     file.write(message + "\n")
 
 
 def run_command(command, cwd=None):
