@@ -160,9 +160,10 @@ def commit_changes_in_submodule(repo_path, submodule):
         except Exception as e:
             append_to_file("commits.log", str(e))
     else:
+        print(submodule_path, "Not Changes Found")
         append_to_file(
             "commits.log",
-            f"No change found in submodule.\n\n",
+            f"No changes found in submodule.\n\n",
         )
 
 
@@ -201,7 +202,8 @@ def push_git_submodules(repo_path):
         run_command(f"git pull origin main", cwd=repo_path)  # Pull before pushing
         run_command(f"git push origin main", cwd=repo_path)
         append_to_file(
-            "commits.log", f"Successful at {str(datetime.datetime.now())}\n\n\n\n\n"
+            "commits.log",
+            f"Parent module Git push successful at {str(datetime.datetime.now())} with commit-message\n{commit_message}\n\n",
         )
     except Exception as e:
         append_to_file("commits.log", f"Parent module error: {str(e)}")
