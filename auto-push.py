@@ -127,7 +127,7 @@ def commit_changes_in_submodule(repo_path, submodule):
 
     append_to_file(
         "commits.log",
-        f"{submodule}\n",
+        f"--------------------------------------------------------------\n{submodule} - {str(datetime.datetime.now())}\n",
     )
 
     submodule_path = os.path.join(repo_path, submodule)
