@@ -11,7 +11,7 @@ logging.basicConfig(
     filename="commits.log",
     encoding="utf-8",  # Ensure Unicode support
     format="%(asctime)s - %(levelname)s - %(message)s",
-    level=logging.DEBUG,
+    level=logging.INFO,
 )
 
 
@@ -131,13 +131,11 @@ def commit_changes_in_submodule(repo_path, submodule):
     submodule_path = os.path.join(repo_path, submodule)
     project = submodule.split("/")[-1]
 
-    logging.debug(f"Project = {project}")
-
     # Get the list of modified files
     modified_files = get_modified_files(submodule_path)
 
     if len(modified_files) == 0:
-        logging.info(f"No changes found in Project = {project}")
+        logging.debug(f"Project-{project.capitalize()} - No change")
         return
 
     # Get the diff summary for each modified file
@@ -156,18 +154,18 @@ def commit_changes_in_submodule(repo_path, submodule):
             run_command("git pull origin dev", cwd=submodule_path)
             run_command("git push origin dev", cwd=submodule_path)
             logging.info(
-                f"Project = {project} Success:  - Commit Message = {"-".join(commit_message.splitlines())}"
+                f"Project-{project.capitalize()} Success: Commit-Message={"-".join(commit_message.splitlines())}"
             )
         except Exception as e:
-            logging.warning(f"Parent Repo Error: {str(e)}")(str(e))
+            logging.error(f"Project-{project.capitalize()} - {str(e)}")
     else:
-        logging.info(f"No changes found in submodule.\n\n")
+        logging.debug(f"Project-{project.capitalize()} - No change")
 
 
 def push_git_submodules(repo_path):
     """Commit, pull, and push all git submodules recursively."""
 
-    logging.debug(f"COMMIT STARTED")
+    logging.info(f"COMMIT STARTED")
 
     try:
         # subprocess.run("")
@@ -196,12 +194,12 @@ def push_git_submodules(repo_path):
         run_command(f"git pull origin main", cwd=repo_path)  # Pull before pushing
         run_command(f"git push origin main", cwd=repo_path)
         logging.info(
-            f"Parent Repo Success - Commit Message = {"-".join(commit_message.splitlines())}"
+            f"Parent Repo Success - Commit Message={"-".join(commit_message.splitlines())}"
         )
     except Exception as e:
-        logging.warning(f"Parent Repo Error: {str(e)}")
+        logging.error(f"Parent Repo Error: {str(e)}")
 
-    logging.debug(f"COMMIT ENDED\n\n")
+    logging.info(f"COMMIT ENDED\n\n")
 
 
 if __name__ == "__main__":
