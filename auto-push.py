@@ -143,7 +143,7 @@ def commit_changes_in_submodule(repo_path, submodule):
     modified_files = get_modified_files(submodule_path)
 
     if len(modified_files) == 0:
-        logging.disable(f"Project-{project.capitalize()} - No change")
+        logging.info(f"Project-{project.capitalize()} - No change")
         return
 
     # Get the diff summary for each modified file
@@ -169,7 +169,7 @@ def commit_changes_in_submodule(repo_path, submodule):
                 f"Project-{project.capitalize()} - {str(e)}"
             )  # Warning because it is not going be in production.
     else:
-        logging.disable(f"Project-{project.capitalize()} - No change")
+        logging.info(f"Project-{project.capitalize()} - No change")
 
     print(submodule)
 
