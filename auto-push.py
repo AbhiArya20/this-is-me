@@ -9,17 +9,10 @@ import logging
 
 logging.basicConfig(
     filename="commits.log",
-    filemode="w",
     encoding="utf-8",  # Ensure Unicode support
     format="%(asctime)s - %(levelname)s - %(message)s",
-    level=logging.INFO,
+    level=logging.DEBUG,
 )
-
-
-def append_to_file(file_name, message):
-    logging.info("This is a test log with emojis ✨🚀🔥")
-    # with open(file_name, "a") as file:
-    #     file.write(message + "\n")
 
 
 def run_command(command, cwd=None):
@@ -135,22 +128,16 @@ def get_diff_summary(submodule_path, modified_files):
 
 def commit_changes_in_submodule(repo_path, submodule):
     """Commit any changes in the submodule with a generated commit message."""
-
-    append_to_file(
-        "commits.log",
-        f"--------------------------------------------------------------\n{submodule} - {str(datetime.datetime.now())}\n",
-    )
-
     submodule_path = os.path.join(repo_path, submodule)
+    project = submodule.split("/")[-1]
+
+    logging.debug(f"Project = {project}")
 
     # Get the list of modified files
     modified_files = get_modified_files(submodule_path)
 
     if len(modified_files) == 0:
-        append_to_file(
-            "commits.log",
-            f"No changes found in submodule.\n\n",
-        )
+        logging.info(f"No changes found in Project = {project}")
         return
 
     # Get the diff summary for each modified file
@@ -168,27 +155,19 @@ def commit_changes_in_submodule(repo_path, submodule):
             run_command(f'git commit -m "{commit_message}"', cwd=submodule_path)
             run_command("git pull origin dev", cwd=submodule_path)
             run_command("git push origin dev", cwd=submodule_path)
-            append_to_file(
-                "commits.log",
-                f"Git push successful at {str(datetime.datetime.now())} with commit-message\n{commit_message}\n\n",
+            logging.info(
+                f"Project = {project} Success:  - Commit Message = {"-".join(commit_message.splitlines())}"
             )
         except Exception as e:
-            append_to_file("commits.log", str(e))
+            logging.warning(f"Parent Repo Error: {str(e)}")(str(e))
     else:
-        print(submodule_path, "Not Changes Found")
-        append_to_file(
-            "commits.log",
-            f"No changes found in submodule.\n\n",
-        )
+        logging.info(f"No changes found in submodule.\n\n")
 
 
 def push_git_submodules(repo_path):
     """Commit, pull, and push all git submodules recursively."""
 
-    append_to_file(
-        "commits.log",
-        f"===============================COMMIT STARTED===============================\n\n",
-    )
+    logging.debug(f"COMMIT STARTED")
 
     try:
         # subprocess.run("")
@@ -198,6 +177,7 @@ def push_git_submodules(repo_path):
 
         # Get the list of modified submodules (those that are out of sync)
         submodules = get_submodules(repo_path)
+        print(submodules)
 
         # pull, Commit, and push the submodules repository
         for submodule in submodules:
@@ -216,17 +196,13 @@ def push_git_submodules(repo_path):
         run_command(f'git commit -m "{commit_message}"', cwd=repo_path)
         run_command(f"git pull origin main", cwd=repo_path)  # Pull before pushing
         run_command(f"git push origin main", cwd=repo_path)
-        append_to_file(
-            "commits.log",
-            f"Parent module Git push successful at {str(datetime.datetime.now())} with commit-message\n{commit_message}\n\n",
+        logging.info(
+            f"Parent Repo Success - Commit Message = {"-".join(commit_message.splitlines())}"
         )
     except Exception as e:
-        append_to_file("commits.log", f"Parent module error: {str(e)}")
+        logging.warning(f"Parent Repo Error: {str(e)}")
 
-    append_to_file(
-        "commits.log",
-        f"================================COMMIT ENDED================================\n\n\n\n\n",
-    )
+    logging.debug(f"COMMIT ENDED\n\n")
 
 
 if __name__ == "__main__":
