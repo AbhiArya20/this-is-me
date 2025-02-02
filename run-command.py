@@ -60,35 +60,33 @@ def run_command_in_all_project(repo_path):
         submodule_path = os.path.join(repo_path, submodule)
         path_in_submodule = os.path.join("packages", "ui")
 
-        command = [
-            "powershell",
-            "-Command",
-            f"echo Hack Shadcn CLI > ./next.config.js",
-        ]
-        run_command(
-            "echo Hack Shadcn CLI > ./next.config.js",
-            cwd=os.path.join(submodule_path, path_in_submodule),
-        )
+        # # Add same content in multiple submodules use below code
+        # css_content = """@tailwind base;
+        # @tailwind components;
+        # @tailwind utilities;"""
+        # with open(
+        #     os.path.join(submodule_path, path_in_submodule, "src", "globals.css"), "w"
+        # ) as f:
+        #     f.write(css_content)
 
-        run_command(
-            "echo @tailwind base;\n@tailwind components;\n@tailwind utilities; > ./src/global.css",
-            cwd=os.path.join(submodule_path, path_in_submodule),
-        )
+        # run_command(
+        #     "echo Hack Shadcn CLI > ./next.config.js",
+        #     cwd=os.path.join(submodule_path, path_in_submodule),
+        # )
 
-        run_command(
-            "npm install -D tailwindcss@3",
-            cwd=os.path.join(submodule_path, path_in_submodule),
-        )
-
-        run_command(
-            "npx tailwindcss init",
-            cwd=os.path.join(submodule_path, path_in_submodule),
-        )
+        # run_command(
+        #     "npm install -D tailwindcss@3",
+        #     cwd=os.path.join(submodule_path, path_in_submodule),
+        # )
 
         run_command(
             "npx shadcn@latest init",
             cwd=os.path.join(submodule_path, path_in_submodule),
         )
+        # run_command(
+        #     "npx tailwindcss init",
+        #     cwd=os.path.join(submodule_path, path_in_submodule),
+        # )
 
 
 if __name__ == "__main__":
