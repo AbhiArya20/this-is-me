@@ -214,7 +214,7 @@ def push_git_submodules(repo_path):
 
     append_to_file(
         "commits.log",
-        f"\n\n================================COMMIT ENDED================================\n\n\n\n\n",
+        f"================================COMMIT ENDED================================\n\n\n\n\n",
     )
 
 
