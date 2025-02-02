@@ -176,9 +176,15 @@ def push_git_submodules(repo_path):
         # Get the list of modified submodules (those that are out of sync)
         submodules = get_submodules(repo_path)
 
-        # pull, Commit, and push the submodules repository
-        for submodule in submodules:
-            commit_changes_in_submodule(repo_path, submodule)
+        # pull, Commit, and push the submodules repository concurrently
+        # for submodule in submodules:
+        #     commit_changes_in_submodule(repo_path, submodule)
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            futures = [
+                executor.submit(commit_changes_in_submodule, "repo_path", sub)
+                for sub in submodules
+            ]
+            concurrent.futures.wait(futures)
 
         # Get the diff summary for the main repository
         modified_files = get_modified_files(repo_path)
