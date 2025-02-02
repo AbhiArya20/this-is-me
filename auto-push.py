@@ -131,13 +131,11 @@ def commit_changes_in_submodule(repo_path, submodule):
     submodule_path = os.path.join(repo_path, submodule)
     project = submodule.split("/")[-1]
 
-    print(submodule)
-
     # Get the list of modified files
     modified_files = get_modified_files(submodule_path)
 
     if len(modified_files) == 0:
-        logging.debug(f"Project-{project.capitalize()} - No change")
+        logging.disable(f"Project-{project.capitalize()} - No change")
         return
 
     # Get the diff summary for each modified file
@@ -159,9 +157,13 @@ def commit_changes_in_submodule(repo_path, submodule):
                 f"Project-{project.capitalize()} Success: Commit-Message={"-".join(commit_message.splitlines())}"
             )
         except Exception as e:
-            logging.error(f"Project-{project.capitalize()} - {str(e)}")
+            logging.warning(
+                f"Project-{project.capitalize()} - {str(e)}"
+            )  # Warning because it is not going be in production.
     else:
-        logging.debug(f"Project-{project.capitalize()} - No change")
+        logging.disable(f"Project-{project.capitalize()} - No change")
+
+    print(submodule)
 
 
 def push_git_submodules(repo_path):
@@ -206,7 +208,9 @@ def push_git_submodules(repo_path):
             f"Parent Repo Success - Commit Message={"-".join(commit_message.splitlines())}"
         )
     except Exception as e:
-        logging.error(f"Parent Repo Error: {str(e)}")
+        logging.warning(
+            f"Parent Repo Error: {str(e)}"
+        )  # Warning because it is not going be in production.
 
     logging.info(f"COMMIT ENDED\n\n")
 
