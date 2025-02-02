@@ -3,6 +3,7 @@ import os
 from openai import OpenAI
 from langchain_ollama import ChatOllama
 import json
+import datetime
 
 
 def append_to_file(file_name, message):
@@ -178,12 +179,11 @@ def push_git_submodules(repo_path):
         run_command(f'git commit -m "{commit_message}"', cwd=repo_path)
         run_command(f"git pull origin main", cwd=repo_path)  # Pull before pushing
         run_command(f"git push origin main", cwd=repo_path)
+        append_to_file("Code pushed successfully at", str(datetime.datetime.now()))
     except Exception as e:
         append_to_file("commit-err.txt", str(e))
         print(f"Error pushing git submodules: {str(e)}")
 
 
 if __name__ == "__main__":
-    # repo_path = input("Enter the path to your Git repository: ").strip()
-    append_to_file("testing-auto-push.txt", f"testing successfully {os.getcwd()}")
     push_git_submodules(os.getcwd())
