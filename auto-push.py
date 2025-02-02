@@ -138,6 +138,7 @@ def commit_changes_in_submodule(repo_path, submodule):
     submodule_path = os.path.join(repo_path, submodule)
     project = submodule.split("/")[-1]
 
+    print(submodule)
     # Get the list of modified files
     modified_files = get_modified_files(submodule_path)
 
@@ -198,8 +199,8 @@ def push_git_submodules(repo_path):
         print(submodules)
         with concurrent.futures.ThreadPoolExecutor() as executor:
             futures = [
-                executor.submit(commit_changes_in_submodule, repo_path, sub)
-                for sub in submodules
+                executor.submit(commit_changes_in_submodule, repo_path, submodule)
+                for submodule in submodules
             ]
             concurrent.futures.wait(futures)
 
