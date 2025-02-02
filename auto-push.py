@@ -5,7 +5,6 @@ import json
 import concurrent.futures
 import logging
 
-
 logging.basicConfig(
     filename="commits.log",
     encoding="utf-8",  # Ensure Unicode support

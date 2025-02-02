@@ -41,10 +41,7 @@ def get_submodules(repo_path):
     return submodules
 
 
-ignored_files = ["package-lock.json"]
-
-
-def run_command(repo_path):
+def run_command_in_all_project(repo_path):
     # subprocess.run("")
     subprocess.run(
         ["git", "submodule", "update", "--init", "--recursive"],
@@ -61,9 +58,38 @@ def run_command(repo_path):
     # pull, Commit, and push the submodules repository concurrently
     for submodule in submodules:
         submodule_path = os.path.join(repo_path, submodule)
-        run_command("git status", cwd=submodule_path)
-        commit_changes_in_submodule(repo_path, submodule)
+        path_in_submodule = os.path.join("packages", "ui")
+
+        command = [
+            "powershell",
+            "-Command",
+            f"echo Hack Shadcn CLI > ./next.config.js",
+        ]
+        run_command(
+            "echo Hack Shadcn CLI > ./next.config.js",
+            cwd=os.path.join(submodule_path, path_in_submodule),
+        )
+
+        run_command(
+            "echo @tailwind base;\n@tailwind components;\n@tailwind utilities; > ./src/global.css",
+            cwd=os.path.join(submodule_path, path_in_submodule),
+        )
+
+        run_command(
+            "npm install -D tailwindcss@3",
+            cwd=os.path.join(submodule_path, path_in_submodule),
+        )
+
+        run_command(
+            "npx tailwindcss init",
+            cwd=os.path.join(submodule_path, path_in_submodule),
+        )
+
+        run_command(
+            "npx shadcn@latest init",
+            cwd=os.path.join(submodule_path, path_in_submodule),
+        )
 
 
 if __name__ == "__main__":
-    run_command(os.getcwd())
+    run_command_in_all_project(os.getcwd())
