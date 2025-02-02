@@ -131,6 +131,8 @@ def commit_changes_in_submodule(repo_path, submodule):
     submodule_path = os.path.join(repo_path, submodule)
     project = submodule.split("/")[-1]
 
+    print(project)
+
     # Get the list of modified files
     modified_files = get_modified_files(submodule_path)
 
@@ -175,6 +177,7 @@ def push_git_submodules(repo_path):
 
         # Get the list of modified submodules (those that are out of sync)
         submodules = get_submodules(repo_path)
+        print(submodules)
 
         # pull, Commit, and push the submodules repository concurrently
         # for submodule in submodules:
