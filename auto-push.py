@@ -177,7 +177,6 @@ def push_git_submodules(repo_path):
 
         # Get the list of modified submodules (those that are out of sync)
         submodules = get_submodules(repo_path)
-        print(submodules)
 
         # pull, Commit, and push the submodules repository
         for submodule in submodules:
