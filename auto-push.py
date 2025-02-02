@@ -136,6 +136,10 @@ def commit_changes_in_submodule(repo_path, submodule):
     modified_files = get_modified_files(submodule_path)
 
     if len(modified_files) == 0:
+        append_to_file(
+            "commits.log",
+            f"No changes found in submodule.\n\n",
+        )
         return
 
     # Get the diff summary for each modified file
