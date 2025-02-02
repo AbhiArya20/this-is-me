@@ -184,7 +184,7 @@ def push_git_submodules(repo_path):
         #     commit_changes_in_submodule(repo_path, submodule)
         with concurrent.futures.ThreadPoolExecutor() as executor:
             futures = [
-                executor.submit(commit_changes_in_submodule, "repo_path", sub)
+                executor.submit(commit_changes_in_submodule, repo_path, sub)
                 for sub in submodules
             ]
             concurrent.futures.wait(futures)
