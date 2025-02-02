@@ -131,7 +131,7 @@ def commit_changes_in_submodule(repo_path, submodule):
     submodule_path = os.path.join(repo_path, submodule)
     project = submodule.split("/")[-1]
 
-    print(project)
+    print(repo_path)
 
     # Get the list of modified files
     modified_files = get_modified_files(submodule_path)
