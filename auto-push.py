@@ -164,7 +164,7 @@ def commit_changes_in_submodule(repo_path, submodule):
             )
         except Exception as e:
             logging.warning(
-                f"Project-{project.capitalize()} - {str(e)}"
+                f"Project-{project.capitalize()} Error: {str(e)}"
             )  # Warning because it is not going be in production.
     else:
         logging.info(f"Project-{project.capitalize()} - No change")
