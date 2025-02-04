@@ -272,3 +272,65 @@
 2025-02-03 23:51:02,165 - WARNING - Project-Edudoor - 'icon'
 2025-02-03 23:51:35,372 - WARNING - Project-Whiteboard - 'icon'
 2025-02-03 23:51:40,041 - WARNING - Project-Learnings - 'icon'
+2025-02-03 23:52:18,351 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-03 23:52:35,694 - INFO - Parent Repo Success - Commit Message= feat: Initial commit for all projects with documentation and setup files--Added basic files for each project including README, LICENSE, and CHANGELOG. Updated .gitignore and setup scripts.-
+2025-02-03 23:52:35,694 - INFO - COMMIT ENDED
+
+
+2025-02-04 02:24:16,839 - INFO - COMMIT STARTED
+2025-02-04 06:42:22,419 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 06:44:41,517 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 06:44:41,537 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 06:44:41,555 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 06:44:52,881 - WARNING - Project-Block-work - 'icon'
+2025-02-04 07:04:02,232 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 07:04:08,676 - WARNING - Project-Create-app - 'icon'
+2025-02-04 07:06:17,297 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 07:06:30,295 - WARNING - Project-Pair-programming - 'icon'
+2025-02-04 07:08:31,959 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 07:08:34,349 - WARNING - Project-Portfolio - 'icon'
+2025-02-04 07:10:38,916 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 07:10:49,339 - WARNING - Project-Docs - 'icon'
+2025-02-04 07:12:57,126 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 07:13:01,472 - WARNING - Project-Deep-learn - 'icon'
+2025-02-04 07:15:16,702 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 07:15:31,863 - WARNING - Project-Phodcast - 'icon'
+2025-02-04 07:17:54,575 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 07:17:56,246 - WARNING - Project-Chat - 'icon'
+2025-02-04 07:20:15,866 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 07:20:40,820 - WARNING - Project-Edudoor - 'icon'
+2025-02-04 07:22:53,164 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 07:23:05,367 - WARNING - Project-Meeting-room - 'icon'
+2025-02-04 07:25:48,184 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 07:25:48,188 - WARNING - Project-Coderoom - 'icon'
+2025-02-04 07:26:02,501 - WARNING - Project-Learnings - 'icon'
+2025-02-04 07:26:38,757 - WARNING - Project-Jainsons - 'icon'
+2025-02-04 10:53:37,105 - INFO - COMMIT STARTED
+2025-02-04 10:57:29,921 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:00:36,820 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:00:36,841 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:00:36,862 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:00:50,186 - WARNING - Project-Deep-learn - 'icon'
+2025-02-04 11:03:09,769 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:03:13,124 - WARNING - Project-Create-app - 'icon'
+2025-02-04 11:05:33,626 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:05:56,145 - WARNING - Project-Chat - 'icon'
+2025-02-04 11:08:24,058 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:08:27,263 - WARNING - Project-Pair-programming - 'icon'
+2025-02-04 11:10:33,681 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:11:03,819 - WARNING - Project-Edudoor - 'icon'
+2025-02-04 11:13:25,172 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:14:05,242 - WARNING - Project-Block-work - 'icon'
+2025-02-04 11:16:35,082 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:16:41,818 - WARNING - Project-Phodcast - 'icon'
+2025-02-04 11:19:05,652 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:19:12,702 - WARNING - Project-Portfolio - 'icon'
+2025-02-04 11:19:13,431 - WARNING - Project-Jainsons - 'icon'
+2025-02-04 11:23:48,840 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:23:48,860 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:24:09,251 - WARNING - Project-Docs - 'icon'
+2025-02-04 11:26:18,067 - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-02-04 11:26:59,522 - WARNING - Project-Learnings - 'icon'
+2025-02-04 11:27:05,301 - WARNING - Project-Meeting-room - 'icon'
+2025-02-04 11:33:57,067 - WARNING - Project-Coderoom - 'icon'
+2025-02-04 11:33:57,850 - WARNING - Project-Whiteboard - 'icon'
